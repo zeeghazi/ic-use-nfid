@@ -9,7 +9,7 @@ import {
 } from "@dfinity/auth-client";
 import type { LoginOptions } from "./login-options.type";
 import type { Identity } from "@dfinity/agent";
-import type { InternetIdentityContextType } from "./context.type";
+import type { NFIDContextType } from "./context.type";
 
 interface Context {
   providerComponentPresent: boolean;
@@ -113,7 +113,7 @@ async function login() {
 
   const loginOptions = context.loginOptions;
   const options: AuthClientLoginOptions = {
-    identityProvider: process.env.II_URL,
+    identityProvider: process.env.NFID_URL,
     onSuccess: onLoginSuccess,
     onError: onLoginError,
     maxTimeToLive: BigInt(3_600_000_000_000), // Defaults to 1 hour
@@ -165,7 +165,7 @@ async function clear() {
  * Hook to access the internet identity as well as login status along with
  * login and clear functions.
  */
-export const useInternetIdentity = (): InternetIdentityContextType => {
+export const useNFID = (): NFIDContextType => {
   const context = useSelector(store, (state) => state.context);
   return {
     isInitializing: context.isInitializing,
@@ -182,22 +182,22 @@ export const useInternetIdentity = (): InternetIdentityContextType => {
 };
 
 /**
- * The InternetIdentityProvider component makes the saved identity available
+ * The NFIDProvider component makes the saved identity available
  * after page reloads. It also allows you to configure default options
  * for AuthClient and login.
  */
-export function InternetIdentityProvider({
+export function NFIDProvider({
   children,
   createOptions,
   loginOptions,
 }: {
-  /** The child components that the InternetIdentityProvider will wrap. This allows any child
-   * component to access the authentication context provided by the InternetIdentityProvider. */
+  /** The child components that the NFIDProvider will wrap. This allows any child
+   * component to access the authentication context provided by the NFIDProvider. */
   children: ReactNode;
 
   /** Options for creating the {@link AuthClient}. See AuthClient documentation for list of options
    *
-   *`ic-use-internet-identity` defaults to disabling the AuthClient idle handling (clearing identities
+   *`ic-use-nfid` defaults to disabling the AuthClient idle handling (clearing identities
    * from store and reloading the window on identity expiry). If that behaviour is preferred, set these settings:
    *
    * ```

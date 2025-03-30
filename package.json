@@ -1,19 +1,12 @@
 {
-  "name": "ic-use-internet-identity",
+  "name": "ic-use-nfid",
   "version": "0.2.0",
-  "description": "Hook that makes it easy to integrate IC Internet Identity into your React application.",
-  "author": "Kristofer Lund <kristofer@kristoferlund.se>",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/kristoferlund/ic-use-internet-identity-demo"
-  },
-  "bugs": "https://github.com/kristoferlund/ic-use-internet-identity-demo/issues",
-  "homepage": "https://github.com/kristoferlund/ic-use-internet-identity-demo",
+  "description": "Hook that makes it easy to integrate NFID into your React application.",
   "keywords": [
     "dfinity",
-    "ic",
+    "nfid",
+    "NFID",
     "internet computer",
-    "internet identity",
     "react",
     "hook"
   ],

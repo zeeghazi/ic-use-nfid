@@ -1,12 +1,12 @@
 import type { Identity } from "@dfinity/agent";
 import type { LoginStatus } from "./state.type";
 
-export type InternetIdentityContextType = {
+export type NFIDContextType = {
   /** Is set to `true` on mount until a stored identity is loaded from local storage or
    * none is found. */
   isInitializing: boolean;
 
-  /** Connect to Internet Identity to login the user. */
+  /** Connect to NFID to login the user. */
   login: () => Promise<void>;
 
   /** The status of the login process. Note: The login status is not affected when a stored
